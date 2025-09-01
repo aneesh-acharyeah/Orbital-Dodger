@@ -1,0 +1,147 @@
+:root {
+  --fg: #e0f7ff;
+  --accent: #00e1ff;
+  --danger: #ff4d8d;
+  --bg: #05070b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 50% 40%, #0b1020, var(--bg));
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+canvas {
+  display: block;
+  width: min(92vw, 900px);
+  height: auto;
+  aspect-ratio: 16/9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow:
+    0 0 40px rgba(0, 225, 255, 0.15) inset,
+    0 0 20px rgba(0, 0, 0, 0.8);
+  background: #060913;
+}
+
+#hud {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#hud .chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.card {
+  text-align: center;
+  padding: 28px 26px;
+  max-width: 560px;
+  width: min(92vw, 560px);
+  border-radius: 20px;
+  background: rgba(7, 10, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.title {
+  font-size: clamp(22px, 3vw, 36px);
+  margin: 0 0 6px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin: 0 0 18px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, rgba(0, 225, 255, 0.35), rgba(0, 225, 255, 0.18));
+  color: #001317;
+  font-weight: 800;
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 225, 255, 0.28);
+  font-size: 16px;
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--fg);
+  box-shadow: none;
+}
+
+#touch {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+#touch .zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  opacity: 0;
+}
+
+#touch .zone.left {
+  left: 0;
+}
+
+#touch .zone.right {
+  right: 0;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #touch {
+    display: block;
+  }
+}
