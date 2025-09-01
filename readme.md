@@ -46,8 +46,6 @@ That’s it — no build tools required! 🚀
 
 ---
 
----
-
 ## 🔮 Future Enhancements
 - Power-ups (shield, slow motion)
 - Different spaceship skins 🚀
