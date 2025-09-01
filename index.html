@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbital Dodger 🌌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="game" width="960" height="540" aria-label="Orbital Dodger game canvas"></canvas>
+
+  <div id="hud" role="status" aria-live="polite">
+    <span class="chip">Score: <span id="score">0</span></span>
+    <span class="chip">Best: <span id="best">0</span></span>
+    <span class="chip">Speed: <span id="speed">1.0x</span></span>
+    <button id="pauseBtn" class="btn secondary" title="Pause (P)">⏸ Pause</button>
+  </div>
+
+  <div id="overlay" aria-modal="true">
+    <!-- Will be populated by JS -->
+  </div>
+
+  <!-- Hidden templates -->
+  <template id="menu-template">
+    <div class="card" id="menu">
+      <h1 class="title">🌌 Orbital Dodger</h1>
+      <p class="subtitle">Rotate around the orbit and dodge incoming asteroids. Survive to score!</p>
+      <p style="opacity:.85">Controls: ← / → (or A / D) • P to Pause • On mobile: tap left/right</p>
+      <div class="row">
+        <button id="playBtn" class="btn">▶️ Play</button>
+        <button id="howBtn" class="btn secondary">❓ How to Play</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="game-over-template">
+    <div class="card">
+      <h2 class="title">Game Over</h2>
+      <p class="subtitle">Score: <b id="final-score"></b> · Best: <b id="final-best"></b></p>
+      <div class="row">
+        <button id="again" class="btn">🔁 Play Again</button>
+        <button id="home" class="btn secondary">🏠 Menu</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="how-to-play-template">
+    <div class="card">
+      <h2 class="title">How to Play</h2>
+      <p class="subtitle">Rotate around the orbit to dodge asteroids flying toward the planet.</p>
+      <ul style="text-align:left; line-height:1.6">
+        <li><b>Move:</b> ← / → or A / D</li>
+        <li><b>Pause:</b> P or click Pause</li>
+        <li><b>Mobile:</b> Tap left/right side of the screen</li>
+        <li>Score increases when asteroids pass the planet core.</li>
+        <li>Difficulty ramps over time: faster and more asteroids.</li>
+      </ul>
+      <div class="row"><button id="back" class="btn">⬅ Back</button></div>
+    </div>
+  </template>
+
+  <!-- Touch zones for mobile -->
+  <div id="touch" aria-hidden="true">
+    <div class="zone left"></div>
+    <div class="zone right"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
